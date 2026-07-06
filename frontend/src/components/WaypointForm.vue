@@ -14,15 +14,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
-
 interface Waypoint {
   location: string;
-  type: 'Pickup' | 'Delivery';
+  type: "Pickup" | "Delivery";
 }
 
 const props = defineProps<{ waypoint: Waypoint }>();
-const emit = defineEmits<{(e: 'remove'): void}>();
+const emit = defineEmits<{ (e: "remove"): void }>();
 </script>
 
 <style scoped>

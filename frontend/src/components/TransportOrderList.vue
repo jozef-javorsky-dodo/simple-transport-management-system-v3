@@ -32,8 +32,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { listTransportOrders, TransportOrder } from '../services/transportOrderService';
+import { ref, onMounted } from "vue";
+import {
+  listTransportOrders,
+  TransportOrder,
+} from "../services/transportOrderService";
 
 const orders = ref<TransportOrder[]>([]);
 const loading = ref<boolean>(true);
@@ -43,7 +46,7 @@ onMounted(async () => {
   try {
     orders.value = await listTransportOrders();
   } catch (err: any) {
-    error.value = 'Error fetching transport orders. Please try again later.';
+    error.value = "Error fetching transport orders. Please try again later.";
   } finally {
     loading.value = false;
   }
@@ -56,7 +59,8 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;

@@ -1,19 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = 'https://cluster-y34ecqenfhcuavp7vbnxv7x.cloudworkstations/';
+const BASE_URL = "http://127.0.0.1:8000/";
 
 interface Waypoint {
   id: number;
   location: string;
-  type: 'Pickup' | 'Delivery';
+  type: "Pickup" | "Delivery";
 }
 
 export const createWaypoint = async (waypoint: Waypoint): Promise<Waypoint> => {
   try {
-    const response = await axios.post<Waypoint>(`${BASE_URL}waypoints/`, waypoint);
+    const response = await axios.post<Waypoint>(
+      `${BASE_URL}waypoints/`,
+      waypoint,
+    );
     return response.data;
   } catch (error) {
-    console.error('Error creating waypoint:', error);
+    console.error("Error creating waypoint:", error);
     throw error;
   }
 };
@@ -23,7 +26,7 @@ export const listWaypoints = async (): Promise<Waypoint[]> => {
     const response = await axios.get<Waypoint[]>(`${BASE_URL}waypoints/`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching waypoints:', error);
+    console.error("Error fetching waypoints:", error);
     throw error;
   }
 };
