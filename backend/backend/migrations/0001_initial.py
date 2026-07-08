@@ -31,3 +31,38 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+
+# ================================================================================
+# ===============================================================================
+
+# import django.db.models.deletion
+# from django.db import migrations, models
+
+
+# class Migration(migrations.Migration):
+
+#     initial = True
+
+#     dependencies = [
+#     ]
+
+#     operations = [
+#         migrations.CreateModel(
+#             name='TransportOrder',
+#             fields=[
+#                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+#                 ('order_number', models.CharField(max_length=255)),
+#                 ('customer_name', models.CharField(max_length=255)),
+#                 ('date', models.DateField()),
+#             ],
+#         ),
+#         migrations.CreateModel(
+#             name='Waypoint',
+#             fields=[
+#                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+#                 ('location', models.CharField(max_length=255)),
+#                 ('type', models.CharField(choices=[('pickup', 'Pickup'), ('delivery', 'Delivery')], max_length=50)),
+#                 ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='waypoints', to='backend.transportorder')),
+#             ],
+#         ),
+#     ]
