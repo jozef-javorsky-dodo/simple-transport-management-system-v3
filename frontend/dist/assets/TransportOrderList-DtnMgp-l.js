@@ -6,8 +6,8 @@ import {
   c as s,
   a as t,
   b as g,
-  e as h,
-  w as b,
+  e as b,
+  w as h,
   f as k,
   g as N,
   t as a,
@@ -16,7 +16,7 @@ import {
   i as r,
   n as C,
   _ as O,
-} from "./index-CwF_B8Yi.js";
+} from "./index-TaKgwE5S.js";
 const x = { class: "card" },
   T = { class: "header-action" },
   L = { key: 0, class: "error-banner" },
@@ -49,10 +49,10 @@ const x = { class: "card" },
             s("div", x, [
               t("div", T, [
                 e[1] || (e[1] = t("h2", null, "Transport Orders", -1)),
-                h(
+                b(
                   m,
                   { to: "/create", class: "btn-primary" },
-                  { default: b(() => e[0] || (e[0] = [k("New Order")])), _: 1 },
+                  { default: h(() => e[0] || (e[0] = [k("New Order")])), _: 1 },
                 ),
               ]),
               d.value ? (r(), s("div", L, a(d.value), 1)) : g("", !0),
@@ -150,5 +150,5 @@ const x = { class: "card" },
       );
     },
   }),
-  P = O(F, [["__scopeId", "data-v-e389f9a3"]]);
+  P = O(F, [["__scopeId", "data-v-b35d8a4f"]]);
 export { P as default };

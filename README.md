@@ -40,7 +40,18 @@ This project is built using a combination of modern web development technologies
 
 The backend provides the following API endpoints:
 
-- `GET /transport-orders/`: List all transport orders.
-- `POST /transport-orders/`: Create a new transport order (including waypoints).
+**Transport Orders:**
+
+- `GET /transport-orders/`: List all transport orders (newest first).
+- `POST /transport-orders/`: Create a new transport order (transactional creation of order + waypoints).
+- `GET /transport-orders/<id>/`: Retrieve a specific transport order.
+- `PUT /transport-orders/<id>/`: Update a transport order and fully replace its nested waypoints safely.
+- `DELETE /transport-orders/<id>/`: Delete a transport order.
+
+**Waypoints:**
+
 - `GET /waypoints/`: List all waypoints.
 - `POST /waypoints/`: Create a new waypoint.
+- `GET /waypoints/<id>/`: Retrieve a specific waypoint.
+- `PUT /waypoints/<id>/`: Update a waypoint.
+- `DELETE /waypoints/<id>/`: Delete a waypoint.

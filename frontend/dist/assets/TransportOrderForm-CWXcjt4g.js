@@ -1,12 +1,12 @@
 import {
-  d as f,
+  d as _,
   c as l,
   i,
   a as e,
   j as d,
   v as u,
   k as x,
-  _,
+  _ as f,
   r as c,
   l as V,
   b as y,
@@ -20,12 +20,12 @@ import {
   m as D,
   u as R,
   p as T,
-} from "./index-CwF_B8Yi.js";
+} from "./index-TaKgwE5S.js";
 import { c as U } from "./transportOrderService-B9WvGMoF.js";
 const q = { class: "waypoint-form" },
   B = { class: "input-group flex-1" },
   A = { class: "input-group" },
-  E = f({
+  E = _({
     __name: "WaypointForm",
     props: { waypoint: {} },
     emits: ["remove"],
@@ -85,7 +85,7 @@ const q = { class: "waypoint-form" },
       );
     },
   }),
-  M = _(E, [["__scopeId", "data-v-faea869d"]]),
+  M = f(E, [["__scopeId", "data-v-682d5caa"]]),
   P = { class: "card max-w-lg" },
   S = { class: "form-group" },
   I = { class: "form-group" },
@@ -96,7 +96,7 @@ const q = { class: "waypoint-form" },
   H = { key: 0, class: "error-text" },
   J = { class: "form-actions" },
   K = ["disabled"],
-  Q = f({
+  Q = _({
     __name: "TransportOrderForm",
     setup(w) {
       const n = R(),
@@ -207,7 +207,7 @@ const q = { class: "waypoint-form" },
                     e(
                       "button",
                       { type: "button", class: "btn-secondary", onClick: b },
-                      "+ Add",
+                      " + Add ",
                     ),
                   ]),
                   e("div", z, [
@@ -231,7 +231,7 @@ const q = { class: "waypoint-form" },
                       128,
                     )),
                     r.waypoints.length === 0
-                      ? (i(), l("p", G, "No waypoints added yet."))
+                      ? (i(), l("p", G, " No waypoints added yet. "))
                       : y("", !0),
                   ]),
                 ]),
@@ -258,5 +258,5 @@ const q = { class: "waypoint-form" },
       };
     },
   }),
-  ee = _(Q, [["__scopeId", "data-v-d0c528c1"]]);
+  ee = f(Q, [["__scopeId", "data-v-7cc3e846"]]);
 export { ee as default };

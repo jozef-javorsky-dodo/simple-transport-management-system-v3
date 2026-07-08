@@ -6,11 +6,11 @@ import {
   a as o,
   e as d,
   w as l,
-  f as c,
-} from "./index-CwF_B8Yi.js";
-const i = {},
+  f as i,
+} from "./index-TaKgwE5S.js";
+const c = {},
   u = { class: "card not-found-container" };
-function p(_, e) {
+function f(p, e) {
   const t = r("router-link");
   return (
     a(),
@@ -26,13 +26,13 @@ function p(_, e) {
       d(
         t,
         { to: "/", class: "btn-primary mt-4 inline-block" },
-        { default: l(() => e[0] || (e[0] = [c("Return to Orders")])), _: 1 },
+        { default: l(() => e[0] || (e[0] = [i("Return to Orders")])), _: 1 },
       ),
     ])
   );
 }
-const m = n(i, [
-  ["render", p],
-  ["__scopeId", "data-v-ec8239cd"],
+const m = n(c, [
+  ["render", f],
+  ["__scopeId", "data-v-de2df127"],
 ]);
 export { m as default };

@@ -1,20 +1,20 @@
-.not-found-container[data-v-ec8239cd] {
+.not-found-container[data-v-de2df127] {
   text-align: center;
   padding: 4rem 2rem;
   max-width: 500px;
   margin: 2rem auto;
 }
-.not-found-container h2[data-v-ec8239cd] {
+.not-found-container h2[data-v-de2df127] {
   color: var(--error-color);
   margin-bottom: 1rem;
 }
-.not-found-container p[data-v-ec8239cd] {
+.not-found-container p[data-v-de2df127] {
   color: var(--text-secondary);
   margin-bottom: 2rem;
 }
-.mt-4[data-v-ec8239cd] {
+.mt-4[data-v-de2df127] {
   margin-top: 1rem;
 }
-.inline-block[data-v-ec8239cd] {
+.inline-block[data-v-de2df127] {
   display: inline-block;
 }
