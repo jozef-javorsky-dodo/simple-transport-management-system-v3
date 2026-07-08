@@ -11,6 +11,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "TransportOrderForm",
     component: () => import("../components/TransportOrderForm.vue"),
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("../components/NotFound.vue"),
+  },
 ];
 
 const router = createRouter({

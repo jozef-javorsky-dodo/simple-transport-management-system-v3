@@ -11,9 +11,25 @@ class TransportOrderListCreateView(generics.ListCreateAPIView):
     serializer_class = TransportOrderSerializer
 
 
+class TransportOrderDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    View to retrieve, update, or delete a transport order.
+    """
+    queryset = TransportOrder.objects.all()
+    serializer_class = TransportOrderSerializer
+
+
 class WaypointListCreateView(generics.ListCreateAPIView):
     """
     View to list all waypoints and create a new waypoint.
+    """
+    queryset = Waypoint.objects.all()
+    serializer_class = WaypointSerializer
+
+
+class WaypointDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    View to retrieve, update, or delete a waypoint.
     """
     queryset = Waypoint.objects.all()
     serializer_class = WaypointSerializer

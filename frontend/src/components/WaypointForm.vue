@@ -1,37 +1,90 @@
 <template>
-  <div>
-    <label for="location">Location</label>
-    <input type="text" id="location" v-model="waypoint.location" required />
+  <div class="waypoint-form">
+    <div class="input-group flex-1">
+      <input
+        type="text"
+        id="location"
+        v-model="waypoint.location"
+        placeholder="Address or Location"
+        required
+        class="full-width"
+      />
+    </div>
 
-    <label for="type">Type</label>
-    <select id="type" v-model="waypoint.type">
-      <option value="Pickup">Pickup</option>
-      <option value="Delivery">Delivery</option>
-    </select>
+    <div class="input-group">
+      <select id="type" v-model="waypoint.type">
+        <option value="pickup">Pickup</option>
+        <option value="delivery">Delivery</option>
+      </select>
+    </div>
 
-    <button type="button" @click="$emit('remove')">Remove</button>
+    <button
+      type="button"
+      class="btn-icon"
+      @click="$emit('remove')"
+      title="Remove Waypoint"
+    >
+      ✕
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
 interface Waypoint {
   location: string;
-  type: "Pickup" | "Delivery";
+  type: "pickup" | "delivery";
 }
 
-const props = defineProps<{ waypoint: Waypoint }>();
-const emit = defineEmits<{ (e: "remove"): void }>();
+defineProps<{ waypoint: Waypoint }>();
+defineEmits<{ (e: "remove"): void }>();
 </script>
 
 <style scoped>
-div {
+.waypoint-form {
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
 }
 
-div > * {
-  margin: 0;
-  padding: 0;
+.input-group {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+select {
+  background-color: #f9fafb;
+}
+
+.btn-icon {
+  background: none;
+  color: var(--text-secondary);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-icon:hover {
+  background-color: #fee2e2;
+  color: var(--error-color);
+  box-shadow: none;
 }
 </style>

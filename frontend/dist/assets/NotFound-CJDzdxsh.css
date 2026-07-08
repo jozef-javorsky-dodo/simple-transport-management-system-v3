@@ -1,0 +1,20 @@
+.not-found-container[data-v-ec8239cd] {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+.not-found-container h2[data-v-ec8239cd] {
+  color: var(--error-color);
+  margin-bottom: 1rem;
+}
+.not-found-container p[data-v-ec8239cd] {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+.mt-4[data-v-ec8239cd] {
+  margin-top: 1rem;
+}
+.inline-block[data-v-ec8239cd] {
+  display: inline-block;
+}

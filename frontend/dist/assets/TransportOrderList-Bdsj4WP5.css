@@ -1,0 +1,82 @@
+.header-action[data-v-e389f9a3] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.btn-primary[data-v-e389f9a3] {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-decoration: none;
+}
+.btn-primary[data-v-e389f9a3]:hover {
+  background-color: var(--primary-hover);
+  color: #fff;
+}
+.table-container[data-v-e389f9a3] {
+  overflow-x: auto;
+}
+table[data-v-e389f9a3] {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th[data-v-e389f9a3],
+td[data-v-e389f9a3] {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+th[data-v-e389f9a3] {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+tr:last-child td[data-v-e389f9a3] {
+  border-bottom: none;
+}
+.font-medium[data-v-e389f9a3] {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.waypoints-badges[data-v-e389f9a3] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.badge[data-v-e389f9a3] {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.badge.pickup[data-v-e389f9a3] {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.badge.delivery[data-v-e389f9a3] {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+.error-banner[data-v-e389f9a3] {
+  background-color: #fef2f2;
+  color: var(--error-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+.empty-state[data-v-e389f9a3],
+.loading-state[data-v-e389f9a3] {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}

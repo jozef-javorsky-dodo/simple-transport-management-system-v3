@@ -1,12 +1,15 @@
 from django.db import models
 
 class TransportOrder(models.Model):
-    order_number = models.CharField(max_length=255)
+    order_number = models.CharField(max_length=255, unique=True)
     customer_name = models.CharField(max_length=255)
     date = models.DateField()
 
     def __str__(self):
         return self.order_number
+
+    class Meta:
+        ordering = ['-date']
 
 class Waypoint(models.Model):
     WAYPOINT_TYPES = [
