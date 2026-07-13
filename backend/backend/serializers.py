@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.db import transaction
 from .models import TransportOrder, Waypoint
 
 class WaypointSerializer(serializers.ModelSerializer):
@@ -11,8 +12,6 @@ class TransportOrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransportOrder
         fields = ['id', 'order_number', 'customer_name', 'date', 'waypoints']
-
-    from django.db import transaction
 
     @transaction.atomic
     def create(self, validated_data):

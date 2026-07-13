@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/";
 
 interface Waypoint {
   id: number;
   location: string;
-  type: "Pickup" | "Delivery";
+  type: "pickup" | "delivery";
 }
 
 export const createWaypoint = async (waypoint: Waypoint): Promise<Waypoint> => {
