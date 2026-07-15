@@ -2,7 +2,15 @@
 
 ## Overview
 
-This project is a simple Transport Management System (TMS) designed to manage transport orders and their associated waypoints. It allows users to create, list, and potentially manage transport orders, including details such as order number, customer name, date, and waypoints (pickup/delivery locations).
+This project is a simple Transport Management System (TMS) designed to manage transport orders and their associated waypoints. It allows users to fully manage (create, list, update, and delete) transport orders, including details such as order number, customer name, date, and waypoints (pickup/delivery locations).
+
+## Running Locally
+
+To quickly start both the frontend and backend servers, you can run the included shell script:
+
+```bash
+./devserver.sh
+```
 
 ## Purpose
 
