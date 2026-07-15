@@ -1,6 +1,6 @@
 <template>
   <div class="card max-w-lg">
-    <h2>Create New Order</h2>
+    <h2>{{ isEdit ? "Edit Order" : "Create New Order" }}</h2>
     <form @submit.prevent="submitForm" class="form-layout">
       <div class="form-group">
         <label for="order-number">Order Number</label>
@@ -53,8 +53,20 @@
       <div v-if="error" class="error-text">{{ error }}</div>
 
       <div class="form-actions">
-        <button type="submit" class="btn-primary" :disabled="submitting">
-          {{ submitting ? "Creating..." : "Create Order" }}
+        <button
+          type="submit"
+          class="btn-primary"
+          :disabled="submitting || loading"
+        >
+          {{
+            submitting
+              ? isEdit
+                ? "Saving..."
+                : "Creating..."
+              : isEdit
+                ? "Save Order"
+                : "Create Order"
+          }}
         </button>
         <router-link to="/" class="btn-text">Cancel</router-link>
       </div>
@@ -63,23 +75,52 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import { useRouter } from "vue-router";
+import { reactive, ref, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import WaypointForm from "./WaypointForm.vue";
 import {
   createTransportOrder,
+  getTransportOrder,
+  updateTransportOrder,
   CreateTransportOrder,
 } from "../services/transportOrderService";
 
 const router = useRouter();
+const route = useRoute();
 const error = ref<string | null>(null);
 const submitting = ref(false);
+const loading = ref(false);
+const isEdit = ref(false);
 
 const order = reactive<CreateTransportOrder>({
   order_number: "",
   customer_name: "",
   date: "",
   waypoints: [],
+});
+
+onMounted(async () => {
+  const idParam = route.params.id;
+  if (idParam) {
+    isEdit.value = true;
+    loading.value = true;
+    try {
+      const data = await getTransportOrder(Number(idParam));
+      order.order_number = data.order_number;
+      order.customer_name = data.customer_name;
+      order.date = data.date;
+      // Copy waypoints array to not mutate reference directly
+      order.waypoints = data.waypoints.map((wp) => ({
+        location: wp.location,
+        type: wp.type,
+      }));
+    } catch (err: any) {
+      error.value = "Failed to load order details.";
+      console.error(err);
+    } finally {
+      loading.value = false;
+    }
+  }
 });
 
 // Function to add a new waypoint to the list
@@ -103,11 +144,24 @@ const submitForm = async () => {
   try {
     submitting.value = true;
     error.value = null;
-    await createTransportOrder(order);
+
+    if (isEdit.value) {
+      await updateTransportOrder(Number(route.params.id), order);
+    } else {
+      await createTransportOrder(order);
+    }
     router.push("/");
   } catch (err: any) {
-    error.value = "Error creating transport order. Please try again.";
-    console.error("Error creating transport order:", err);
+    const data = err.response?.data;
+    if (data && typeof data === "object") {
+      const messages = Object.entries(data)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(", ");
+      error.value = `Error: ${messages}`;
+    } else {
+      error.value = "Error saving transport order. Please try again.";
+    }
+    console.error("Error saving transport order:", err);
   } finally {
     submitting.value = false;
   }

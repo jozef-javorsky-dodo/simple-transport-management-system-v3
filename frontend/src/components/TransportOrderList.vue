@@ -15,6 +15,7 @@
             <th>Customer Name</th>
             <th>Date</th>
             <th>Waypoints</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +35,20 @@
                 </span>
               </div>
             </td>
+            <td>
+              <div class="actions">
+                <router-link :to="`/edit/${order.id}`" class="btn-text edit-btn"
+                  >Edit</router-link
+                >
+                <button
+                  @click="deleteOrder(order.id)"
+                  class="btn-text delete-btn"
+                  :disabled="deletingId === order.id"
+                >
+                  {{ deletingId === order.id ? "Deleting..." : "Delete" }}
+                </button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -51,12 +66,29 @@
 import { ref, onMounted } from "vue";
 import {
   listTransportOrders,
+  deleteTransportOrder,
   TransportOrder,
 } from "../services/transportOrderService";
 
 const orders = ref<TransportOrder[]>([]);
 const loading = ref<boolean>(true);
 const error = ref<string | null>(null);
+const deletingId = ref<number | null>(null);
+
+const deleteOrder = async (id: number) => {
+  if (!confirm("Are you sure you want to delete this transport order?")) return;
+
+  try {
+    deletingId.value = id;
+    await deleteTransportOrder(id);
+    orders.value = orders.value.filter((o) => o.id !== id);
+  } catch (err: any) {
+    alert("Failed to delete order. Please try again.");
+    console.error(err);
+  } finally {
+    deletingId.value = null;
+  }
+};
 
 onMounted(async () => {
   try {
@@ -165,5 +197,42 @@ tr:last-child td {
   text-align: center;
   padding: 3rem;
   color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.edit-btn {
+  color: var(--primary-color);
+}
+
+.edit-btn:hover {
+  text-decoration: underline;
+}
+
+.delete-btn {
+  color: var(--error-color);
+}
+
+.delete-btn:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.delete-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>

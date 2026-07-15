@@ -12,6 +12,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../components/TransportOrderForm.vue"),
   },
   {
+    path: "/edit/:id",
+    name: "TransportOrderEdit",
+    component: () => import("../components/TransportOrderForm.vue"),
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: () => import("../components/NotFound.vue"),
